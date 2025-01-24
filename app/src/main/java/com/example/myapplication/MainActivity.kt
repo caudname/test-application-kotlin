@@ -65,5 +65,8 @@ fun Counter() {
         Button(onClick = { count++ }) {
             Text(text = "ОК")
         }
+        Button(onClick = { count = 0 }) {
+            Text(text = "Сбросить")
+        }
     }
 }
