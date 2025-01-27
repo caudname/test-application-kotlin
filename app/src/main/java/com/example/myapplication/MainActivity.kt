@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -60,7 +62,7 @@ fun Counter() {
     var count by remember { mutableStateOf(0) }
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier.fillMaxSize().padding(16.dp).clickable { count++ },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -73,16 +75,16 @@ fun Counter() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
-            Button(
-                onClick = { count++ },
-                modifier = Modifier.size(width = 140.dp, height = 60.dp),
-            ) {
-                Text(text = "ОК", fontSize = 20.sp)
-            }
+//            Button(
+//                onClick = { count++ },
+//                modifier = Modifier.size(width = 140.dp, height = 60.dp),
+//            ) {
+//                Text(text = "ОК", fontSize = 20.sp)
+//            }
             Button(onClick = { count = 0 },
-                modifier = Modifier.size(width = 140.dp, height = 60.dp),
+                modifier = Modifier.size(width = 60.dp, height = 60.dp),
             ) {
-                Text(text = "Сбросить", fontSize = 20.sp)
+                Text(text = "\u23CE", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
         }
     }
